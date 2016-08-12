@@ -34,13 +34,13 @@ peers = lu.get_peers()
 To run the Flask application make sure that you have flask installed for python3
 ```
 python3 DHT-web.py
-``
+```
 
 To query for data collected by active nodes:
-`https://127.0.0.1:5000/<key>`
+```https://127.0.0.1:5000/<key>```
 
 example for btce ticker data:
-`https://127.0.0.1:5000/btce-unixtimestamp`
+```https://127.0.0.1:5000/btce-unixtimestamp```
 
 To load homepage which includes the html that was stored using example_dht
-`https://127.0.0.1/`
+```https://127.0.0.1/```
