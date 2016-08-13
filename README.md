@@ -46,7 +46,7 @@ To query for data collected by active nodes:
 `http://127.0.0.1:5000/<key>`
 
 example for btce ticker data:
-`http://127.0.0.1:5000/btce-unixtimestamp`
+`http://127.0.0.1:5000/<btce-unixtimestamp>`
 
 To load homepage which includes the html that was stored using example_dht
 `http://127.0.0.1/`
