@@ -1,3 +1,11 @@
+Ensure that flask is installed.
+sudo pip3 install flask
+
+Next, install from the kad submodule
+cd kad
+python3 setup.py install
+
+
 # flask-DHT
 
 Use of example_dht (This must be running in order for lookup_dht to be used)
