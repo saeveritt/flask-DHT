@@ -1,9 +1,9 @@
 Ensure that flask is installed.
-sudo pip3 install flask
+`sudo pip3 install flask`
 
 Next, install from the kad submodule
-cd kad
-python3 setup.py install
+```cd kad
+python3 setup.py install```
 
 
 # flask-DHT
