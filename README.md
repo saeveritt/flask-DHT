@@ -33,7 +33,7 @@ import lookup_dht as lu
 dht = lu.get_dht()
 
 #Returns list of all keys found in node
-keys = lu.list_keys()
+keys = lu.list_keys(dht)
 
 #Returns list of only peer id's 
 peers = lu.get_peers()
@@ -45,10 +45,13 @@ python3 DHT-web.py
 ```
 
 To query for data collected by active nodes:
-```https://127.0.0.1:5000/<key>```
+```http://127.0.0.1:5000/<key>```
 
 example for btce ticker data:
-```https://127.0.0.1:5000/btce-unixtimestamp```
+```http://127.0.0.1:5000/btce-unixtimestamp```
 
 To load homepage which includes the html that was stored using example_dht
-```https://127.0.0.1/```
+```http://127.0.0.1/```
+
+To load keylist accumulated by node 
+```http://127.0.0.1/keylist```
