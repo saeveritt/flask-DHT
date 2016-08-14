@@ -7,19 +7,14 @@ app = Flask(__name__)
 
 dht = lu.get_dht()
 
-def getblockcount():
-    f = Popen(['ppcoind','getblockcount'],stdout=PIPE,stderr=PIPE)
-    count,err = f.communicate()
-    count = loads(count.decode('utf-8').replace('\n',''))
-    return int(count)
 
 @app.route('/')
 def home():
-    f = Popen(['ppcoind','getinfo'],stdout=PIPE,stderr=PIPE)
-    data,err = f.communicate()
-    data = loads(data.decode('utf-8').replace('\n',''))
-    body = dht['html-body']
-    return 
+    data = dht['html-body']
+    f = open('templates/body.html','w')
+    f.write(str(data))
+    f.close()
+    return render_template('body.html',version='hiii')
 
 @app.route('/keylist')
 def keylist():
