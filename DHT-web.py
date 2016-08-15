@@ -24,6 +24,7 @@ def dht2file(key,type):
 def home():
     dht2file('html-body','body')
     dht2file('html-head','head')
+    dht2file('html-table','table')
     data = rpc_command('-info')
     return render_template('body.html',ppc_version=data['ppc_version'],protocolversion=data['protocolversion'],walletversion=data['walletversion'],balance=data['balance'],newmint=data['newmint'],stake=data['stake'],blocks=data['blocks'],moneysupply=data['moneysupply'],connections=data['connections'],serial=data['serial'],ip=data['ip'],pos_difficulty=data['pos_difficulty'],pow_difficulty=data['pow_difficulty'],macc_addr=data['macc addr'],os=data['os'],hardware=data['hardware'],uptime=data['uptime'],average_load=data['average_load'])
 
