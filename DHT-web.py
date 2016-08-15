@@ -7,14 +7,25 @@ app = Flask(__name__)
 
 dht = lu.get_dht()
 
+def rpc_command(command):
+    f = Popen(['peerbox',str(command)],stdout=PIPE,stderr=PIPE)
+    data,err = f.communicate()
+    data = loads(data.decode('utf-8').replace('\n',''))
+    return data
+
+#type must match the includes label
+def dht2file(key,type):
+    data = dht[str(key)]
+    f = open('templates/%s.html'%(type),'w')
+    f.write(str(data))
+    f.close()
 
 @app.route('/')
 def home():
-    data = dht['html-body']
-    f = open('templates/body.html','w')
-    f.write(str(data))
-    f.close()
-    return render_template('body.html',version='hiii')
+    dht2file('html-body','body')
+    dht2file('html-head','head')
+    data = rpc_command('-info')
+    return render_template('body.html',ppc_version=data['ppc_version'],protocolversion=data['protocolversion'],walletversion=data['walletversion'],balance=data['balance'],newmint=data['newmint'],stake=data['stake'],blocks=data['blocks'],moneysupply=data['moneysupply'],connections=data['connections'],serial=data['serial'],ip=data['ip'],pos_difficulty=data['pos_difficulty'],pow_difficulty=data['pow_difficulty'],macc_addr=data['macc addr'],os=data['os'],hardware=data['hardware'],uptime=data['uptime'],average_load=data['average_load'])
 
 @app.route('/keylist')
 def keylist():
